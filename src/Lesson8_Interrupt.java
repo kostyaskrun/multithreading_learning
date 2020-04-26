@@ -38,6 +38,7 @@ class TestThread extends Thread {
 
         System.out.printf("%s started... \n", Thread.currentThread().getName());
         int counter = 1; // счетчик циклов
+        //understand difference between interrupted and isInterrupted methods
         while (!isInterrupted()) {
             System.out.println("Loop " + counter++);
         }

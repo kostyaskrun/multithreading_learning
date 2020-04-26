@@ -22,6 +22,28 @@ public class Lesson11_LiveLock_plus_ReentrantLock_class {
     }
 
     public static void main(String[] args) {
+        //Были времена, когда единственный способ достижения взаимного исключения
+        //был через ключевое слово synchronized, но он имеет несколько недостатков,
+        //например нельзя расширить lock за пределами метода или блока кода и т.д.
+
+        /*A ReentrantLock is unstructured, unlike synchronized constructs -- i.e.
+          you don't need to use a block structure for locking and can even hold a lock across methods. An example:*/
+
+        /*private ReentrantLock lock;
+
+        public void foo() {
+            ...
+            lock.lock();
+            ...
+        }
+
+        public void bar() {
+            ...
+            lock.unlock();
+            ...
+        }*/
+
+
         Lock first = new ReentrantLock();
         Lock second = new ReentrantLock();
 

@@ -28,6 +28,10 @@ public class Lesson1_ProcessAndThread {
         first.run();
         SecondWayToCreateThread second = new SecondWayToCreateThread();
         second.start();
+        //Создание нити затратно в плане времени и ресурсов. Если вы создаёте нить во время обработки запроса,
+        //это замедлит время отклика, также процесс может создать только ограниченное число нитей.
+        //Чтобы избежать этих проблем, во время запуска приложения создаётся пул нитей и нити повторно используются
+        //для обработки запросов. Этот пул нитей называется "thread pool", а нити в нём – рабочая нить.
         ExecutorService executorService = Executors.newCachedThreadPool();
         Callable<String> third = () -> "Third way";
         Future<String> future = executorService.submit(third);
